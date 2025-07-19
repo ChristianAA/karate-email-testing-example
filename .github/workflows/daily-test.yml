@@ -1,0 +1,43 @@
+name: Daily Maven Tests
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Java 18
+        uses: actions/setup-java@v3
+        with:
+          java-version: '18'
+          distribution: 'temurin'
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+
+      - name: Start Mailpit
+        run: |
+          docker-compose up -d
+          for i in {1..60}; do
+            if curl --silent --fail http://localhost:8025/api/v1/messages > /dev/null; then
+              echo "Mailpit ready."
+              break
+            fi
+            sleep 2
+          done
+
+      - name: Run maven tests
+        run: mvn clean test
+
+      - name: Tear down
+        if: always()
+        run: docker-compose down

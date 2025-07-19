@@ -1,3 +1,6 @@
+[![Daily Maven Tests](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml/badge.svg?branch=master)](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml)
+
+
 # Email Testing Example: Karate + Spring + Mailpit
 
 This repository demonstrates an end-to-end email testing setup using Karate DSL, Spring Framework, and Mailpit as a local SMTP testing server.
