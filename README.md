@@ -1,4 +1,4 @@
-[![Daily Maven Tests](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml/badge.svg?branch=master)](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml)
+[![Daily Maven Tests](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml/badge.svg)](https://github.com/ChristianAA/karate-email-testing-example/actions/workflows/daily-test.yml)
 
 
 # Email Testing Example: Karate + Spring + Mailpit
